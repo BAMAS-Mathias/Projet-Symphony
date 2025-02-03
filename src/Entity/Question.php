@@ -4,7 +4,9 @@ namespace App\Entity;
 
 use App\Repository\QuestionRepository;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
 
+#[ApiResource]
 #[ORM\Entity(repositoryClass: QuestionRepository::class)]
 class Question
 {
@@ -18,6 +20,10 @@ class Question
 
     #[ORM\Column(length: 30)]
     private ?string $difficulty = null;
+
+    #[ORM\ManyToOne(inversedBy: 'questions')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Quizz $quizz = null;
 
     public function getId(): ?int
     {
@@ -51,6 +57,18 @@ class Question
     public function setDifficulty(string $difficulty): static
     {
         $this->difficulty = $difficulty;
+
+        return $this;
+    }
+
+    public function getQuizz(): ?Quizz
+    {
+        return $this->quizz;
+    }
+
+    public function setQuizz(?Quizz $quizz): static
+    {
+        $this->quizz = $quizz;
 
         return $this;
     }
