@@ -18,13 +18,7 @@ final class QuizzController extends AbstractController
         ]);
     }
 
-    /*#[Route('api/quizz/', name: 'app_quizz_show')]
-    public function get_all_quizz(QuizzRepository $quizzRepository, SerializerInterface $serializer): Response
-    {
-        $quizzList = $quizzRepository->findAll();
-        $quizzJson = $serializer->serialize($quizzList, 'json');
-        return new JsonResponse($quizzJson, 200, [], true);
-    }*/
+    
 
     #[Route('/quizz/create', name: 'app_quizz_create')]
     public function create(): Response

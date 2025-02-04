@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import axios from "axios";
 
 const Quizzlist = () => {
   const [quizzList, setQuizzList] = useState([]);
 
-  fetchQuizzList = () => {
-    axios.get("http://localhost:8000/api/quizz").then((response) => {
-      setQuizzList(response.data);
+  const fetchQuizzList = () => {
+    axios.get("http://localhost:8000/api/quizzs").then((response) => {
+      setQuizzList(response.data.member);
     });
-
-    return (
-      <div className="w-screen h-screen">
-        <Navbar />
-      </div>
-    );
   };
+
+  useEffect(() => {
+    fetchQuizzList();
+  }, []);
+
+  return (
+    <div className="w-screen h-screen">
+      <Navbar />
+      {quizzList.length > 0 && quizzList.map((quizz) => <p>{quizz.name}</p>)}
+    </div>
+  );
 };
+
 export default Quizzlist;

@@ -16,30 +16,18 @@ class Answer
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $questionId = null;
-
     #[ORM\Column]
     private ?bool $isCorrect = null;
 
     #[ORM\Column(length: 120)]
     private ?string $value = null;
 
+    #[ORM\ManyToOne(inversedBy: 'answers')]
+    private ?Question $Question = null;
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getQuestionId(): ?string
-    {
-        return $this->questionId;
-    }
-
-    public function setQuestionId(string $questionId): static
-    {
-        $this->questionId = $questionId;
-
-        return $this;
     }
 
     public function isCorrect(): ?bool
@@ -62,6 +50,18 @@ class Answer
     public function setValue(string $value): static
     {
         $this->value = $value;
+
+        return $this;
+    }
+
+    public function getQuestion(): ?Question
+    {
+        return $this->Question;
+    }
+
+    public function setQuestion(?Question $Question): static
+    {
+        $this->Question = $Question;
 
         return $this;
     }
