@@ -13,6 +13,7 @@ cd Projet-Symphony
 #### 📦 Dépendances PHP et BDD
 ```sh
 composer install
+Symfony console doctrine:database:create
 symfony console doctrine:migration:migrate
 ```
 
