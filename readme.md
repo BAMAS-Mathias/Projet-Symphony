@@ -10,9 +10,10 @@ cd Projet-Symphony
 ```
 
 ### 2️⃣ Installer les dépendances
-#### 📦 Dépendances PHP
+#### 📦 Dépendances PHP et BDD
 ```sh
 composer install
+symfony console doctrine:migration:migrate
 ```
 
 #### 📦 Dépendances JavaScript
@@ -34,7 +35,7 @@ npm run watch
 ### 3️⃣ Lancer le serveur Symfony
 Dans un **autre terminal**, démarrez le serveur :
 ```sh
-symfony serve
+symfony server:start -port=8000
 ```
 
 Votre projet est maintenant accessible à l'adresse suivante :
