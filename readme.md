@@ -38,6 +38,16 @@ Dans un **autre terminal**, démarrez le serveur :
 symfony server:start -port=8000
 ```
 
+Vous pour ajouter un utiliser sur la page
+``` 
+localhost:8000/register
+```
+
+La page d'accueil se trouve sur la page
+``` 
+localhost:8000/dahsboard
+```
+
 Votre projet est maintenant accessible à l'adresse suivante :
 ```
 http://127.0.0.1:8000/dashboard
