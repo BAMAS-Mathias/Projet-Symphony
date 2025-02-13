@@ -6,7 +6,6 @@ import quizzIllustration from "../../../img/dashboard-illustration.svg";
 const Dashboard = () => {
   return (
     <div className="text-[#1d1d1d] max-w-screen max-h-screen overflow-y-hidden ">
-      <Navbar />
       <div className="w-full items-center text-center flex mt-24 flex-col">
         <p className="text-6xl font-bold w-fit  max-w-[600px]">
           Découvrez des quizz sur Quizzdle
@@ -17,7 +16,11 @@ const Dashboard = () => {
           et défiez vos amis pour apprendre en vous amusant. Rejoignez Quizzdle
           et plongez dans l'univers du quiz !
         </p>
-        <Button value={"Nous rejoindre"} className={"px-32 mt-6 py-4 "} />
+        <Button
+          value={"Nous rejoindre"}
+          className={"px-32 mt-6 py-4 "}
+          onClick={() => (window.location.href = "/quizz/generate")}
+        />
         <img
           className="absolute left-[70%] top-[50%]"
           src={quizzIllustration}

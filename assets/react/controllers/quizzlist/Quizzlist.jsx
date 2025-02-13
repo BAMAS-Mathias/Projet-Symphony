@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "../navbar/Navbar";
 import axios from "axios";
+import Quizz from "./Quizz";
 
 const Quizzlist = () => {
   const [quizzList, setQuizzList] = useState([]);
@@ -18,7 +19,14 @@ const Quizzlist = () => {
   return (
     <div className="w-screen h-screen">
       <Navbar />
-      {quizzList.length > 0 && quizzList.map((quizz) => <p>{quizz.name}</p>)}
+      <div className="grid gap-2 px-10 py-10 w-full h-full">
+        {quizzList.length > 0 &&
+          quizzList.map((quizz, index) => (
+            <div key={index}>
+              <Quizz quizz={quizz} />
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

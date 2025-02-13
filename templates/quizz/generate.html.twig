@@ -1,10 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DashboardController!{% endblock %}
+{% block title %}Hello QuizzController!{% endblock %}
 
 {% block body %}
-    
     <div {{ react_component('navbar/Navbar', {'auth': app.user}) }}></div>
 
-<div {{ react_component('dashboard/Dashboard', {'fullName':'test'}) }}></div>
+    <div {{ react_component('generatequizz/generateQuizz', {}) }}></div>
 {% endblock %}
